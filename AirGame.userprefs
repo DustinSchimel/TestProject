@@ -4,14 +4,14 @@
       <File FileName="TestProject/Model/Player.cs" Line="28" Column="3" />
       <File FileName="TestProject/View/Animation.cs" Line="100" Column="26" />
       <File FileName="TestProject/Controller/AirGame.cs" Line="11" Column="18" />
-      <File FileName="TestProject/Controller/Program.cs" Line="27" Column="20" />
+      <File FileName="TestProject/Controller/Program.cs" Line="27" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.TestProject PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.AirGame PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

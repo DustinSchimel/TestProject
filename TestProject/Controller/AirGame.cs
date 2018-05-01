@@ -4,16 +4,16 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 // Reference for all Model objects
-using TestProject.Model;
+using AirGame.Model;
 // Link the View namespace
-using TestProject.View;
+using AirGame.View;
 
-namespace TestProject
+namespace AirGame
 {
 	/// <summary>
 	/// This is the main type for your game.
 	/// </summary>
-	public class Game1 : Game
+	public class AirGame : Game
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
@@ -32,7 +32,7 @@ namespace TestProject
 		private float playerMoveSpeed;
 
 
-		public Game1()
+		public AirGame()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";

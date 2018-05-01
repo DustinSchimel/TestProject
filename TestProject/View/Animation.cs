@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace TestProject.View
+namespace AirGame.View
 {
 	public class Animation
 	{

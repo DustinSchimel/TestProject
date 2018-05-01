@@ -1,4 +1,4 @@
-﻿#region Using Statements
+#region Using Statements
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using UIKit;
 #endif
 #endregion
 
-namespace TestProject
+namespace AirGame
 {
 #if __IOS__ || __TVOS__
     [Register("AppDelegate")]
@@ -20,11 +20,11 @@ namespace TestProject
 	static class Program
 #endif
 	{
-		private static Game1 game;
+		private static AirGame game;
 
 		internal static void RunGame()
 		{
-			game = new Game1();
+			game = new AirGame();
 			game.Run();
 #if !__IOS__ && !__TVOS__
 			game.Dispose();

@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using TestProject.View;
-namespace TestProject.Model
+using AirGame.View;
+namespace AirGame.Model
 {
 	public class Player
 	{
