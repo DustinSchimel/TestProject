@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 // Reference for all Model objects
 using AirGame.Model;
 // Link the View namespace
@@ -37,6 +39,16 @@ namespace AirGame
 		// A movement speed for the player
 		private float playerMoveSpeed;
 
+		// Enemies
+		private Texture2D enemyTexture;
+		private List<Enemy> enemies;
+
+		// The rate at which the enemies appear
+		private TimeSpan enemySpawnTime;
+		private TimeSpan previousSpawnTime;
+
+		// A random number generator
+		private Random random;
 
 		public AirGame()
 		{
@@ -61,6 +73,18 @@ namespace AirGame
 
 			bgLayer1 = new ParallaxingBackground();
 			bgLayer2 = new ParallaxingBackground();
+
+			// Initialize the enemies list
+			enemies = new List<Enemy> ();
+
+			// Set the time keepers to zero
+			previousSpawnTime = TimeSpan.Zero;
+
+			// Used to determine how fast enemy respawns
+			enemySpawnTime = TimeSpan.FromSeconds(1.0f);
+
+			// Initialize our random number generator
+			random = new Random();
 
 			base.Initialize();
 		}
@@ -88,6 +112,8 @@ namespace AirGame
 			bgLayer2.Initialize(Content, "Texture/bgLayer2", GraphicsDevice.Viewport.Width, -2);
 
 			mainBackground = Content.Load<Texture2D>("Texture/mainbackground");
+
+			enemyTexture = Content.Load<Texture2D>("Animation/mineAnimation");
 		}
 
 		/// <summary>
@@ -118,11 +144,14 @@ namespace AirGame
 			//Update the player
 			UpdatePlayer(gameTime);
 
-			base.Update(gameTime);
-
 			// Update the parallaxing background
 			bgLayer1.Update();
 			bgLayer2.Update();
+
+			// Update the enemies
+			UpdateEnemies(gameTime);
+
+			base.Update(gameTime);
 		}
 
 		/// <summary>
@@ -144,7 +173,14 @@ namespace AirGame
 			bgLayer2.Draw(spriteBatch);
 
 			// Draw the Player 
-			player.Draw(spriteBatch); 
+			player.Draw(spriteBatch);
+
+			// Draw the Enemies
+			for (int i = 0; i<enemies.Count; i++)
+			{
+				enemies[i].Draw(spriteBatch);
+			}
+
 			// Stop drawing 
 			spriteBatch.End();
 
@@ -179,6 +215,50 @@ namespace AirGame
 			// Make sure that the player does not go out of bounds
 			player.Position.X = MathHelper.Clamp(player.Position.X, 0, GraphicsDevice.Viewport.Width - player.Width);
 			player.Position.Y = MathHelper.Clamp(player.Position.Y, 0, GraphicsDevice.Viewport.Height - player.Height);
+		}
+
+		private void AddEnemy()
+		{
+			// Create the animation object
+			Animation enemyAnimation = new Animation();
+
+			// Initialize the animation with the correct animation information
+			enemyAnimation.Initialize(enemyTexture, Vector2.Zero, 47, 61, 8, 30, Color.White, 1f, true);
+
+			// Randomly generate the position of the enemy
+			Vector2 position = new Vector2(GraphicsDevice.Viewport.Width + enemyTexture.Width / 2, random.Next(100, GraphicsDevice.Viewport.Height - 100));
+
+			// Create an enemy
+			Enemy enemy = new Enemy();
+
+			// Initialize the enemy
+			enemy.Initialize(enemyAnimation, position);
+
+			// Add the enemy to the active enemies list
+			enemies.Add(enemy);
+		}
+
+		private void UpdateEnemies(GameTime gameTime)
+		{
+			// Spawn a new enemy enemy every 1.5 seconds
+			if (gameTime.TotalGameTime - previousSpawnTime > enemySpawnTime)
+			{
+				previousSpawnTime = gameTime.TotalGameTime;
+
+				// Add an Enemy
+				AddEnemy();
+			}
+
+			// Update the Enemies
+			for (int i = enemies.Count - 1; i >= 0; i--)
+			{
+				enemies[i].Update(gameTime);
+
+				if (enemies[i].Active == false)
+				{
+					enemies.RemoveAt(i);
+				}
+		 	}
 		}
 	}
 }

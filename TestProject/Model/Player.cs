@@ -6,8 +6,11 @@ namespace AirGame.Model
 {
 	public class Player
 	{
+		
+
 		public Player()
 		{
+			
 		}
 
 		// Initialize the player
