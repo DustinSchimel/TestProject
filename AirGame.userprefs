@@ -1,18 +1,16 @@
 ﻿<Properties StartupConfiguration="{1019C325-5C8E-4140-9311-17DFE163F95E}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="TestProject/Controller/AirGame.cs">
     <Files>
-      <File FileName="TestProject/Model/Player.cs" Line="11" Column="18" />
+      <File FileName="TestProject/Model/Player.cs" Line="13" Column="4" />
       <File FileName="TestProject/View/Animation.cs" Line="20" Column="32" />
-      <File FileName="TestProject/Controller/AirGame.cs" Line="57" Column="1" />
+      <File FileName="TestProject/Controller/AirGame.cs" Line="69" Column="1" />
       <File FileName="TestProject/View/ParallaxingBackground.cs" Line="7" Column="23" />
       <File FileName="TestProject/Model/Enemy.cs" Line="120" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/dsch3401/Projects/TestProject/TestProject/Controller/AirGame.cs" relfile="TestProject/Controller/AirGame.cs" line="69" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
