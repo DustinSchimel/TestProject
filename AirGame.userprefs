@@ -3,7 +3,7 @@
     <Files>
       <File FileName="TestProject/Model/Player.cs" Line="13" Column="4" />
       <File FileName="TestProject/View/Animation.cs" Line="20" Column="32" />
-      <File FileName="TestProject/Controller/AirGame.cs" Line="220" Column="14" />
+      <File FileName="TestProject/Controller/AirGame.cs" Line="169" Column="6" />
       <File FileName="TestProject/View/ParallaxingBackground.cs" Line="7" Column="23" />
       <File FileName="TestProject/Model/Enemy.cs" Line="120" Column="3" />
       <File FileName="TestProject/Model/Projectile.cs" Line="7" Column="20" />
